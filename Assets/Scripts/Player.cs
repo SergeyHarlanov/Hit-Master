@@ -15,13 +15,17 @@ public class Player : MonoBehaviour
     
     private StateMachine _move;
     private StateMachine _attack;
-    void Start()
+
+    public void StartMoveabled()
+    {
+        StartCoroutine(MoveabledToPoint());
+    }
+     private  void Start()
     {
         _navMeshAgent = GetComponent<NavMeshAgent>();
         _move = GetComponent<Move>();
         _attack = GetComponent<Attack>();
 
-        StartCoroutine(MoveabledToPoint());
     }
 
     private IEnumerator MoveabledToPoint()
